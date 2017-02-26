@@ -18,3 +18,22 @@ do
   fi
 done
 
+DBCSV = "dbInstances.csv"
+
+aws rds describe-db-instances | jq -r '.DBInstances[] | .DBInstanceIdentifier + ", " + .InstanceCreateTime' > $DBCSV
+
+for x in $(cat $DBCSV)
+do
+  dblt = $(echo $x | cut -f2 -d',')
+  dbid = $(echo $x | cut -f1 -d',')
+
+  dbltu = $(date -d $dblt "+%s")-$dbltu ))
+  if [ $(($runtime/3600)) -gt $HOUR ]; then
+    echo "$dbid was running since $dblt ...needs to be terminated"
+    aws rds delete-db-instance --db-instance-identifier $dbid
+  else
+    echo "$dbid is safe"
+  fi
+done
+
+
