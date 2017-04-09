@@ -15,5 +15,6 @@ To create your table type >>create table (name your table)(id INT(6) UNSIGNED AU
   >> reg_date TIMESTAMP);
 Your table will be created with all of the inputs you need.'
 Clone my repository or copy and paste the restdb.php file into a file of the same name into /var/www/html/
-
+Edit the restdb.php file to incorporate your database information within the parentheses.
+You should now be able to use Curl to interact with your database.
   
