@@ -57,10 +57,10 @@ function deleter($request, $mysqli){
   }
 }
 
-$host='35.184.202.80';
-$dbuser='tturner2';
-$dbpass='Y0unghun';
-$db='users';
+$host='(Enter mysql ip here)';
+$dbuser='(Enter verified username here)';
+$dbpass='(Enter corresponding password here)';
+$db='(Enter database name here)';
 
 $mysqli = new mysqli($host, $dbuser, $dbpass, $db);
 if ($mysqli->connect_errno) {
